@@ -54,13 +54,14 @@ void triangle() {
 	glBindBuffer(GL_ARRAY_BUFFER, VBOid);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*18, trianglevertices, GL_STATIC_DRAW);
 	
+	glEnableClientState(GL_VERTEX_ARRAY);
+	
 	GLuint VBOindex; 
 	glGenBuffers(1, &VBOindex);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOindex);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLubyte)*6, indices, GL_STATIC_DRAW);
 	
 	//3. Activate and specify pointer to vertex array
-	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY); 
 	
 	//4. Draw the primitive object
